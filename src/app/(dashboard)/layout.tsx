@@ -1,6 +1,9 @@
 "use client";
 
 import { useSession } from "next-auth/react";
+
+// Force dynamic rendering for this layout
+export const dynamic = 'force-dynamic';
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
@@ -11,7 +14,9 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { data: session, status } = useSession();
+  const sessionData = useSession();
+  const session = sessionData?.data;
+  const status = sessionData?.status;
   const router = useRouter();
 
   useEffect(() => {

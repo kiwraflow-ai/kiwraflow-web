@@ -10,7 +10,8 @@ import {
 import { useState } from "react";
 
 export default function DashboardHeader() {
-  const { data: session } = useSession();
+  const sessionData = useSession();
+  const session = sessionData?.data;
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   return (
