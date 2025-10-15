@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { EyeIcon, EyeSlashIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -19,11 +20,23 @@ export default function LoginPage() {
     setIsLoading(true);
     setError("");
 
-    // Simulação de login - sempre funciona
-    setTimeout(() => {
+    try {
+      const result = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        setError("Email ou senha incorretos");
+        setIsLoading(false);
+      } else {
+        router.push("/dashboard");
+      }
+    } catch (error) {
+      setError("Erro ao fazer login");
       setIsLoading(false);
-      router.push("/dashboard");
-    }, 1000);
+    }
   };
 
   return (
