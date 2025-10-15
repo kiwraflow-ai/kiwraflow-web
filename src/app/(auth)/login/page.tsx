@@ -45,10 +45,10 @@ export default function LoginPage() {
       <div className="absolute top-6 left-6 z-10">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-dark hover:text-kiwi transition-colors"
+          className="inline-flex items-center gap-2 text-dark hover:text-kiwi transition-colors group"
         >
-          <ArrowLeftIcon className="w-5 h-5" />
-          Voltar ao site
+          <ArrowLeftIcon className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+          <span>Voltar ao site</span>
         </Link>
       </div>
 
@@ -89,10 +89,10 @@ export default function LoginPage() {
               </span>
             </motion.div>
             <h2 className="text-3xl sm:text-4xl font-bold text-dark mb-2">
-              Bem-vindo de volta!
+              Entre na sua conta
             </h2>
             <p className="text-lg text-gray-600">
-              Entre na sua conta para continuar
+              Acesse o dashboard da sua empresa
             </p>
           </div>
 

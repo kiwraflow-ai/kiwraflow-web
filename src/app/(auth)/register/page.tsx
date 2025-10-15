@@ -104,10 +104,10 @@ export default function RegisterPage() {
       <div className="absolute top-6 left-6 z-10">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-dark hover:text-kiwi transition-colors"
+          className="inline-flex items-center gap-2 text-dark hover:text-kiwi transition-colors group"
         >
-          <ArrowLeftIcon className="w-5 h-5" />
-          Voltar ao site
+          <ArrowLeftIcon className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+          <span>Voltar ao site</span>
         </Link>
       </div>
 
