@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center justify-center pt-16 bg-light dark:bg-dark-bg"
+      className="relative min-h-screen flex items-center justify-center pt-16 bg-dark-bg"
     >
       {/* Efeito de ondas fluídas */}
       <div className="absolute inset-0 overflow-hidden">
@@ -42,7 +42,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-body text-xl sm:text-2xl text-gray-600 dark:text-dark-muted mb-12 max-w-4xl mx-auto text-balance"
+            className="text-body text-xl sm:text-2xl text-text-secondary mb-12 max-w-4xl mx-auto text-balance"
           >
             Simplifique contratos, relatórios e cobranças em um só painel
           </motion.p>
@@ -57,7 +57,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-2xl text-lg font-display font-semibold hover-lift"
+            className="inline-flex items-center gap-3 btn-primary text-lg"
           >
             <ChatBubbleLeftRightIcon className="w-6 h-6" />
             Fale com um especialista →

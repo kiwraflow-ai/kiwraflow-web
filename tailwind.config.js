@@ -44,10 +44,23 @@ module.exports = {
         widest: '0.1em',
       },
       colors: {
-        kiwi: "#55D187",
-        fluid: "#4CC9F0",
-        dark: "#3A3A3A",
-        light: "#F6F7FB",
+        // Tema escuro profissional
+        primary: "#00D68F",
+        dark: {
+          bg: "#0B0B0E",        // Fundo principal
+          surface: "#121318",   // Fundo de cards/seções
+          card: "#121318",      // Cards
+          border: "#262832",     // Bordas
+        },
+        text: {
+          primary: "#EDEEF2",   // Texto principal
+          secondary: "#B8BBC7", // Texto secundário
+          muted: "#8B8D9A",     // Texto desabilitado
+        },
+        // Cores de sistema
+        kiwi: "#00D68F",
+        fluid: "#00D68F",
+        light: "#0B0B0E",
         gray: {
           50: '#f9fafb',
           100: '#f3f4f6',
@@ -59,14 +72,6 @@ module.exports = {
           700: '#374151',
           800: '#1f2937',
           900: '#111827',
-        },
-        // Dark mode colors
-        dark: {
-          bg: "#0f172a",
-          surface: "#1e293b",
-          card: "#334155",
-          text: "#f1f5f9",
-          muted: "#94a3b8",
         },
       },
       spacing: {

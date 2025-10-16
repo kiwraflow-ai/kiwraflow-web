@@ -92,7 +92,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${poppins.variable}`}>
-      <body className="antialiased font-sans bg-light dark:bg-dark-bg text-dark dark:text-dark-text transition-colors duration-300">
+      <body className="antialiased font-sans bg-dark-bg text-text-primary">
         <a href="#main-content" className="skip-link">
           Pular para o conteúdo principal
         </a>

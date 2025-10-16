@@ -29,7 +29,7 @@ export default function DemoSection() {
   ];
 
   return (
-    <section className="py-20 bg-white dark:bg-dark-surface">
+    <section className="py-20 bg-dark-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -41,7 +41,7 @@ export default function DemoSection() {
           <h2 className="text-display text-4xl sm:text-5xl lg:text-6xl mb-6">
             Veja o <span className="text-gradient">KiwraFlow</span> em ação
           </h2>
-          <p className="text-body text-xl text-gray-600 dark:text-dark-muted max-w-3xl mx-auto">
+          <p className="text-body text-xl text-text-secondary max-w-3xl mx-auto">
             Experimente nossa plataforma e descubra como ela pode transformar sua gestão empresarial
           </p>
         </motion.div>
@@ -55,8 +55,8 @@ export default function DemoSection() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative bg-gradient-to-br from-kiwi/20 to-fluid/20 rounded-2xl p-8 shadow-2xl">
-              <div className="bg-white dark:bg-dark-card rounded-xl p-6 shadow-lg">
+            <div className="relative bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl p-8 shadow-2xl">
+              <div className="bg-dark-card rounded-xl p-6 border border-dark-border">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex space-x-2">
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -67,7 +67,7 @@ export default function DemoSection() {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={() => setIsPlaying(!isPlaying)}
-                    className="p-2 bg-kiwi text-white rounded-full hover:bg-kiwi/90 transition-colors"
+                    className="p-2 bg-primary text-dark-bg rounded-full hover:bg-primary/90 transition-colors"
                     aria-label={isPlaying ? "Pausar demo" : "Reproduzir demo"}
                   >
                     {isPlaying ? (
@@ -79,18 +79,18 @@ export default function DemoSection() {
                 </div>
                 
                 <div className="space-y-4">
-                  <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
-                  <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4 animate-pulse"></div>
-                  <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2 animate-pulse"></div>
+                  <div className="h-4 bg-dark-border rounded animate-pulse"></div>
+                  <div className="h-4 bg-dark-border rounded w-3/4 animate-pulse"></div>
+                  <div className="h-4 bg-dark-border rounded w-1/2 animate-pulse"></div>
                 </div>
 
                 {isPlaying && (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="mt-6 p-4 bg-kiwi/10 rounded-lg"
+                    className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20"
                   >
-                    <p className="text-sm text-kiwi font-medium">
+                    <p className="text-sm text-primary font-medium">
                       🎉 Demo em execução! Veja como é fácil gerenciar sua empresa.
                     </p>
                   </motion.div>
@@ -115,16 +115,16 @@ export default function DemoSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ x: 10 }}
-                className="flex items-start space-x-4 p-6 rounded-xl hover:bg-gray-50 dark:hover:bg-dark-card transition-colors"
+                className="flex items-start space-x-4 p-6 rounded-xl hover:bg-dark-card transition-colors border border-dark-border"
               >
                 <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${feature.color} flex items-center justify-center text-2xl`}>
                   {feature.icon}
                 </div>
                 <div>
-                  <h3 className="text-xl font-display font-semibold text-dark dark:text-dark-text mb-2">
+                  <h3 className="text-xl font-display font-semibold text-text-primary mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-body text-gray-600 dark:text-dark-muted">
+                  <p className="text-body text-text-secondary">
                     {feature.description}
                   </p>
                 </div>
@@ -142,7 +142,7 @@ export default function DemoSection() {
                 href="/register"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center btn-gradient text-white px-8 py-4 rounded-2xl text-lg font-display font-semibold hover-lift"
+                className="inline-flex items-center btn-primary text-lg"
               >
                 Começar Agora →
               </motion.a>

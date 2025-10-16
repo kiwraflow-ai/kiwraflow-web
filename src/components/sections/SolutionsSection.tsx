@@ -32,7 +32,7 @@ export default function SolutionsSection() {
   return (
     <section
       id="solucoes"
-      className="py-20 section-accent relative overflow-hidden"
+      className="py-20 bg-dark-surface relative overflow-hidden"
     >
       {/* Padrão de fundo sutil */}
       <div className="absolute inset-0 pattern-dots"></div>
@@ -45,10 +45,10 @@ export default function SolutionsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-6">
             Nossas Soluções
           </h2>
-          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
             Ferramentas poderosas para simplificar sua gestão empresarial
           </p>
         </motion.div>
@@ -61,7 +61,7 @@ export default function SolutionsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-2xl card-elevated hover-lift border border-gray-100"
+              className="bg-dark-card p-8 rounded-2xl border border-dark-border hover:border-primary/50 transition-all duration-300"
             >
               <div
                 className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${
@@ -74,10 +74,10 @@ export default function SolutionsSection() {
                   }`}
                 />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h3 className="text-xl font-semibold text-text-primary mb-4">
                 {solution.title}
               </h3>
-              <p className="text-gray-700 dark:text-gray-300">{solution.description}</p>
+              <p className="text-text-secondary">{solution.description}</p>
             </motion.div>
           ))}
         </div>
