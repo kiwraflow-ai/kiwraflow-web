@@ -61,7 +61,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-dark-surface border-t border-dark-border">
+    <footer className="bg-dark text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-16">
@@ -75,31 +75,31 @@ export default function Footer() {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center mb-6">
-                  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
-                    <span className="text-dark-bg font-bold text-lg">K</span>
+                  <div className="w-10 h-10 bg-kiwi rounded-lg flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-lg">K</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-text-primary">
-                    <span className="text-primary">Kiwra</span>Flow
-          </h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    <span className="text-kiwi">Kiwra</span>Flow
+                  </h3>
                 </div>
                 
-                <p className="text-text-secondary mb-6 max-w-sm">
+                <p className="text-gray-300 mb-6 max-w-sm">
                   Simplifique contratos, relatórios e cobranças em um só painel. 
                   Gestão fluida e inteligente para pequenas empresas.
                 </p>
 
                 {/* Contact Info */}
                 <div className="space-y-3">
-                  <div className="flex items-center text-text-secondary">
-                    <EnvelopeIcon className="w-5 h-5 mr-3 text-primary" />
+                  <div className="flex items-center text-gray-300">
+                    <EnvelopeIcon className="w-5 h-5 mr-3 text-kiwi" />
                     <span>contato@kiwraflow.com</span>
                   </div>
-                  <div className="flex items-center text-text-secondary">
-                    <PhoneIcon className="w-5 h-5 mr-3 text-primary" />
+                  <div className="flex items-center text-gray-300">
+                    <PhoneIcon className="w-5 h-5 mr-3 text-kiwi" />
                     <span>+55 (11) 99999-9999</span>
                   </div>
-                  <div className="flex items-center text-text-secondary">
-                    <MapPinIcon className="w-5 h-5 mr-3 text-primary" />
+                  <div className="flex items-center text-gray-300">
+                    <MapPinIcon className="w-5 h-5 mr-3 text-kiwi" />
                     <span>São Paulo, SP - Brasil</span>
                   </div>
                 </div>
@@ -115,7 +115,7 @@ export default function Footer() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h4 className="text-text-primary font-semibold mb-4">
+                <h4 className="text-white font-semibold mb-4">
                   {section.title}
                 </h4>
                 <ul className="space-y-3">
@@ -123,7 +123,7 @@ export default function Footer() {
                     <li key={link.name}>
                       <a
                         href={link.href}
-                        className="text-text-secondary hover:text-primary transition-colors duration-200 text-sm"
+                        className="text-gray-300 hover:text-kiwi transition-colors duration-200 text-sm"
                       >
                         {link.name}
                       </a>

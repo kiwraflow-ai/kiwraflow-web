@@ -8,7 +8,7 @@
   }
   
   body {
-    @apply bg-dark-bg text-text-primary font-sans antialiased;
+    @apply bg-white text-dark font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   
@@ -170,25 +170,25 @@
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
   
-  /* Botões profissionais */
+  /* Botões com identidade KiwraFlow */
   .btn-primary {
-    @apply bg-primary text-dark-bg font-semibold px-6 py-3 rounded-lg transition-all duration-200;
+    @apply bg-kiwi text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200;
     border: none;
     box-shadow: none;
   }
   
   .btn-primary:hover {
-    filter: brightness(0.95);
+    background-color: #42B56F;
     transform: translateY(-1px);
   }
   
   .btn-primary:focus-visible {
-    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-dark-bg;
+    @apply outline-none ring-2 ring-kiwi ring-offset-2 ring-offset-white;
   }
   
   /* Acessibilidade */
   .focus-visible {
-    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-dark-bg;
+    @apply outline-none ring-2 ring-kiwi ring-offset-2 ring-offset-white;
   }
   
   .sr-only {

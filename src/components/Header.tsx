@@ -20,7 +20,7 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-dark-surface/95 backdrop-blur-sm shadow-sm border-b border-dark-border"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -42,7 +42,7 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 whileHover={{ scale: 1.05 }}
-                className="text-text-primary hover:text-primary transition-colors duration-300 font-medium"
+                className="text-dark hover:text-kiwi transition-colors duration-300 font-medium"
               >
                 {item.name}
               </motion.a>
@@ -55,7 +55,7 @@ export default function Header() {
             <motion.a
               href="/login"
               whileHover={{ scale: 1.05 }}
-              className="text-text-primary hover:text-primary transition-colors duration-300 font-medium"
+              className="text-dark hover:text-kiwi transition-colors duration-300 font-medium"
             >
               Entrar
             </motion.a>
@@ -74,7 +74,7 @@ export default function Header() {
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-text-primary hover:text-primary transition-colors duration-300"
+              className="text-dark hover:text-kiwi transition-colors duration-300"
             >
               {isMenuOpen ? <XMarkIcon className="w-6 h-6" /> : <Bars3Icon className="w-6 h-6" />}
             </motion.button>
@@ -98,7 +98,7 @@ export default function Header() {
                 href={item.href}
                 whileHover={{ scale: 1.05 }}
                 onClick={() => setIsMenuOpen(false)}
-                className="block text-text-primary hover:text-primary transition-colors duration-300 font-medium"
+                className="block text-dark hover:text-kiwi transition-colors duration-300 font-medium"
               >
                 {item.name}
               </motion.a>
@@ -110,7 +110,7 @@ export default function Header() {
               <motion.a
                 href="/login"
                 whileHover={{ scale: 1.05 }}
-                className="block text-text-primary hover:text-primary transition-colors duration-300 font-medium"
+                className="block text-dark hover:text-kiwi transition-colors duration-300 font-medium"
               >
                 Entrar
               </motion.a>

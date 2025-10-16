@@ -44,7 +44,7 @@ export default function PricingSection() {
   return (
     <section
       id="planos"
-      className="py-20 bg-dark-surface relative overflow-hidden"
+      className="py-20 bg-light relative overflow-hidden"
     >
       {/* Padrão de fundo sutil */}
       <div className="absolute inset-0 pattern-grid"></div>
@@ -57,10 +57,10 @@ export default function PricingSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-dark mb-6">
             Planos de Assinatura
           </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Escolha o plano ideal para o seu negócio e comece a simplificar
             sua gestão hoje
           </p>
@@ -74,27 +74,27 @@ export default function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className={`bg-dark-card p-8 rounded-2xl border border-dark-border hover:border-primary/50 transition-all duration-300 relative ${
-                plan.popular ? "ring-2 ring-primary" : ""
+              className={`bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 relative border border-gray-100 ${
+                plan.popular ? "ring-2 ring-kiwi" : ""
               }`}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-primary text-dark-bg px-4 py-2 rounded-full text-sm font-semibold">
+                  <span className="bg-kiwi text-white px-4 py-2 rounded-full text-sm font-semibold">
                     Mais Popular
                   </span>
                 </div>
               )}
 
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-text-primary mb-2">
+                <h3 className="text-2xl font-bold text-dark mb-2">
                   {plan.name}
                 </h3>
                 <div className="flex items-baseline justify-center">
                   <span className="text-4xl font-bold text-kiwi">
                     {plan.price}
                   </span>
-                  <span className="text-text-secondary ml-1">{plan.period}</span>
+                  <span className="text-gray-600 ml-1">{plan.period}</span>
                 </div>
               </div>
 
@@ -102,7 +102,7 @@ export default function PricingSection() {
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-center">
                     <CheckCircleIcon className="w-5 h-5 text-kiwi mr-3 flex-shrink-0" />
-                    <span className="text-text-secondary">{feature}</span>
+                    <span className="text-gray-600">{feature}</span>
                   </li>
                 ))}
               </ul>

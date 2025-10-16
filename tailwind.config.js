@@ -44,23 +44,16 @@ module.exports = {
         widest: '0.1em',
       },
       colors: {
-        // Tema escuro profissional
-        primary: "#00D68F",
-        dark: {
-          bg: "#0B0B0E",        // Fundo principal
-          surface: "#121318",   // Fundo de cards/seções
-          card: "#121318",      // Cards
-          border: "#262832",     // Bordas
-        },
-        text: {
-          primary: "#EDEEF2",   // Texto principal
-          secondary: "#B8BBC7", // Texto secundário
-          muted: "#8B8D9A",     // Texto desabilitado
-        },
+        // Paleta oficial KiwraFlow
+        kiwi: "#55D187",        // Verde-kiwi (primária)
+        fluid: "#4CC9F0",       // Azul-fluido (secundária)
+        dark: "#3A3A3A",        // Cinza escuro (textos principais)
+        light: "#F6F7FB",       // Cinza claro (fundos suaves)
+        white: "#FFFFFF",       // Branco (fundos principais)
+        
         // Cores de sistema
-        kiwi: "#00D68F",
-        fluid: "#00D68F",
-        light: "#0B0B0E",
+        primary: "#55D187",
+        secondary: "#4CC9F0",
         gray: {
           50: '#f9fafb',
           100: '#f3f4f6',

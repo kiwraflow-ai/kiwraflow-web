@@ -30,7 +30,7 @@ export default function WhyChooseSection() {
   ];
 
   return (
-    <section className="py-20 bg-dark-bg relative">
+    <section className="py-20 bg-white relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -39,10 +39,10 @@ export default function WhyChooseSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-dark mb-6">
             Por que escolher o KiwraFlow?
           </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Descubra os diferenciais que fazem do KiwraFlow a melhor escolha
             para sua empresa
           </p>
@@ -56,7 +56,7 @@ export default function WhyChooseSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="text-center bg-dark-card p-8 rounded-2xl border border-dark-border hover:border-primary/50 transition-all duration-300"
+              className="text-center bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
               <div
                 className={`w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 ${
@@ -69,10 +69,10 @@ export default function WhyChooseSection() {
                   }`}
                 />
               </div>
-              <h3 className="text-xl font-semibold text-text-primary mb-4">
+              <h3 className="text-xl font-semibold text-dark mb-4">
                 {feature.title}
               </h3>
-              <p className="text-text-secondary">{feature.description}</p>
+              <p className="text-gray-600">{feature.description}</p>
             </motion.div>
           ))}
         </div>
