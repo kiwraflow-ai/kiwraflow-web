@@ -53,13 +53,13 @@ export default function LoginPage() {
     <div className="min-h-screen gradient-background">
       {/* Header com botão voltar */}
       <div className="absolute top-6 left-6 z-10">
-        <button
-          onClick={() => router.push("/")}
+        <Link
+          href="/"
           className="inline-flex items-center gap-2 text-dark hover:text-kiwi transition-colors group"
         >
           <ArrowLeftIcon className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
           <span>Voltar ao site</span>
-        </button>
+        </Link>
       </div>
 
       {/* Efeito de ondas fluídas */}
