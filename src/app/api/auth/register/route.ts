@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
     console.log("✅ Usuário criado com sucesso:", user.id);
 
     // Remover a senha da resposta
-    const { password: _, ...userWithoutPassword } = user;
+    const { password: _password, ...userWithoutPassword } = user;
 
     return NextResponse.json(
       { message: "Usuário criado com sucesso", user: userWithoutPassword },

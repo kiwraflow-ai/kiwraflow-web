@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +20,7 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-dark-surface/95 backdrop-blur-sm shadow-sm"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -50,10 +51,11 @@ export default function Header() {
 
           {/* Desktop Buttons */}
           <div className="hidden md:flex items-center space-x-4">
+            <ThemeToggle />
             <motion.a
               href="/login"
               whileHover={{ scale: 1.05 }}
-              className="text-dark hover:text-kiwi transition-colors duration-300 font-medium"
+              className="text-dark dark:text-dark-text hover:text-kiwi transition-colors duration-300 font-medium"
             >
               Entrar
             </motion.a>
@@ -102,10 +104,13 @@ export default function Header() {
               </motion.a>
             ))}
             <div className="pt-4 space-y-3">
+              <div className="flex items-center justify-center">
+                <ThemeToggle />
+              </div>
               <motion.a
                 href="/login"
                 whileHover={{ scale: 1.05 }}
-                className="block text-dark hover:text-kiwi transition-colors duration-300 font-medium"
+                className="block text-dark dark:text-dark-text hover:text-kiwi transition-colors duration-300 font-medium"
               >
                 Entrar
               </motion.a>
