@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { EyeIcon, EyeSlashIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
@@ -13,7 +13,16 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const message = searchParams.get("message");
+    if (message) {
+      setSuccessMessage(message);
+    }
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,13 +52,13 @@ export default function LoginPage() {
     <div className="min-h-screen gradient-background">
       {/* Header com botão voltar */}
       <div className="absolute top-6 left-6 z-10">
-        <Link
-          href="/"
+        <button
+          onClick={() => router.push("/")}
           className="inline-flex items-center gap-2 text-dark hover:text-kiwi transition-colors group"
         >
           <ArrowLeftIcon className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
           <span>Voltar ao site</span>
-        </Link>
+        </button>
       </div>
 
       {/* Efeito de ondas fluídas */}
@@ -159,6 +168,16 @@ export default function LoginPage() {
                   className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl"
                 >
                   {error}
+                </motion.div>
+              )}
+
+              {successMessage && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-green-50 border border-green-200 text-green-600 px-4 py-3 rounded-xl"
+                >
+                  {successMessage}
                 </motion.div>
               )}
 

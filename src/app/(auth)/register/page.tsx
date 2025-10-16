@@ -91,24 +91,45 @@ export default function RegisterPage() {
     const selectedPlan = plans[currentSlide];
     setFormData({ ...formData, plan: selectedPlan.id });
 
-    // Simulação de cadastro - sempre funciona
-    setTimeout(() => {
+    try {
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+          plan: selectedPlan.id,
+        }),
+      });
+
+      if (response.ok) {
+        // Cadastro bem-sucedido, redirecionar para login
+        router.push("/login?message=Conta criada com sucesso! Faça login para continuar.");
+      } else {
+        const errorData = await response.json();
+        setError(errorData.error || "Erro ao criar conta");
+        setIsLoading(false);
+      }
+    } catch (error) {
+      setError("Erro ao criar conta");
       setIsLoading(false);
-      router.push("/dashboard");
-    }, 1000);
+    }
   };
 
   return (
     <div className="min-h-screen gradient-background">
       {/* Header com botão voltar */}
       <div className="absolute top-6 left-6 z-10">
-        <Link
-          href="/"
+        <button
+          onClick={() => router.push("/")}
           className="inline-flex items-center gap-2 text-dark hover:text-kiwi transition-colors group"
         >
           <ArrowLeftIcon className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
           <span>Voltar ao site</span>
-        </Link>
+        </button>
       </div>
 
       {/* Efeito de ondas fluídas */}
