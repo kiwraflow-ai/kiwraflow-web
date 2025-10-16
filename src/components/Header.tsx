@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import ThemeToggle from './ThemeToggle';
+// import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,7 +51,7 @@ export default function Header() {
 
           {/* Desktop Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
             <motion.a
               href="/login"
               whileHover={{ scale: 1.05 }}
@@ -104,9 +104,9 @@ export default function Header() {
               </motion.a>
             ))}
             <div className="pt-4 space-y-3">
-              <div className="flex items-center justify-center">
+              {/* <div className="flex items-center justify-center">
                 <ThemeToggle />
-              </div>
+              </div> */}
               <motion.a
                 href="/login"
                 whileHover={{ scale: 1.05 }}
