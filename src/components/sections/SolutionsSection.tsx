@@ -45,10 +45,10 @@ export default function SolutionsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-dark mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
             Nossas Soluções
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
             Ferramentas poderosas para simplificar sua gestão empresarial
           </p>
         </motion.div>
@@ -74,10 +74,10 @@ export default function SolutionsSection() {
                   }`}
                 />
               </div>
-              <h3 className="text-xl font-semibold text-dark mb-4">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 {solution.title}
               </h3>
-              <p className="text-gray-600">{solution.description}</p>
+              <p className="text-gray-700 dark:text-gray-300">{solution.description}</p>
             </motion.div>
           ))}
         </div>

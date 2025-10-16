@@ -39,10 +39,10 @@ export default function WhyChooseSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-dark mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
             Por que escolher o KiwraFlow?
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
             Descubra os diferenciais que fazem do KiwraFlow a melhor escolha
             para sua empresa
           </p>
@@ -69,10 +69,10 @@ export default function WhyChooseSection() {
                   }`}
                 />
               </div>
-              <h3 className="text-xl font-semibold text-dark mb-4">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 {feature.title}
               </h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <p className="text-gray-700 dark:text-gray-300">{feature.description}</p>
             </motion.div>
           ))}
         </div>
