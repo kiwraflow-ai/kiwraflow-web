@@ -4,7 +4,9 @@ import bcrypt from "bcryptjs";
 
 export async function POST(request: NextRequest) {
   try {
+    console.log("🔍 Iniciando cadastro...");
     const { name, email, password } = await request.json();
+    console.log("📧 Email:", email);
 
     // Verificar se o usuário já existe
     const existingUser = await prisma.user.findUnique({
@@ -18,12 +20,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Hash da senha
+    const hashedPassword = await bcrypt.hash(password, 12);
+
     // Criar novo usuário
     const user = await prisma.user.create({
       data: {
         name,
         email,
-        password,
+        password: hashedPassword,
         plan: "STARTER",
       },
     });
@@ -38,7 +43,10 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Erro ao criar usuário:", error);
     return NextResponse.json(
-      { message: "Erro interno do servidor" },
+      { 
+        error: "Erro interno do servidor",
+        details: process.env.NODE_ENV === "development" ? error.message : undefined
+      },
       { status: 500 }
     );
   }
