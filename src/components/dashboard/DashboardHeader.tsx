@@ -3,11 +3,11 @@
 import { useSession, signOut } from "next-auth/react";
 import { motion } from "framer-motion";
 import {
-  BellIcon,
   UserCircleIcon,
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import NotificationsPanel from "./NotificationsPanel";
 
 export default function DashboardHeader() {
   const sessionData = useSession();
@@ -20,13 +20,7 @@ export default function DashboardHeader() {
         <div className="flex flex-1"></div>
         <div className="flex items-center gap-x-4 lg:gap-x-6">
           {/* Notifications */}
-          <button
-            type="button"
-            className="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500"
-          >
-            <span className="sr-only">Ver notificações</span>
-            <BellIcon className="h-6 w-6" />
-          </button>
+          <NotificationsPanel />
 
           {/* Separator */}
           <div className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200" />

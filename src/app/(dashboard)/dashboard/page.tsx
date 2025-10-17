@@ -1,50 +1,114 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-
-// Force dynamic rendering for this page
-export const dynamic = 'force-dynamic';
-import {
-  DocumentTextIcon,
-  ChartBarIcon,
-  CreditCardIcon,
-  UserGroupIcon,
-} from "@heroicons/react/24/outline";
+import { FileText, DollarSign, BarChart3, Users, TrendingUp, Bell } from "lucide-react";
 import DashboardStats from "@/components/dashboard/DashboardStats";
 import RecentContracts from "@/components/dashboard/RecentContracts";
 import QuickActions from "@/components/dashboard/QuickActions";
+import RecentActivity from "@/components/dashboard/RecentActivity";
+
+// Force dynamic rendering for this page
+export const dynamic = 'force-dynamic';
+
+interface DashboardData {
+  totalContracts: number;
+  totalRevenue: number;
+  conversionRate: number;
+  activeClients: number;
+  contractsChange: number;
+  revenueChange: number;
+  conversionChange: number;
+  clientsChange: number;
+}
 
 export default function DashboardPage() {
-  const stats = [
+  const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    loadDashboardData();
+  }, []);
+
+  const loadDashboardData = async () => {
+    try {
+      // Carregar dados reais das APIs
+      const contractsResponse = await fetch('/api/contracts');
+      const contracts = contractsResponse.ok ? await contractsResponse.json() : { contracts: [] };
+
+      // Calcular métricas
+      const totalContracts = contracts.contracts?.length || 0;
+      const signedContracts = contracts.contracts?.filter((c: any) => c.status === 'SIGNED').length || 0;
+      const totalRevenue = contracts.contracts?.reduce((sum: number, c: any) => sum + (c.value || 0), 0) || 0;
+      const activeClients = new Set(contracts.contracts?.map((c: any) => c.clientEmail)).size || 0;
+      const conversionRate = totalContracts > 0 ? Math.round((signedContracts / totalContracts) * 100) : 0;
+
+      setDashboardData({
+        totalContracts,
+        totalRevenue,
+        conversionRate,
+        activeClients,
+        contractsChange: 2, // Simulado por enquanto
+        revenueChange: 12,
+        conversionChange: 5,
+        clientsChange: 3
+      });
+    } catch (error) {
+      console.error('Erro ao carregar dados do dashboard:', error);
+      // Dados de fallback
+      setDashboardData({
+        totalContracts: 0,
+        totalRevenue: 0,
+        conversionRate: 0,
+        activeClients: 0,
+        contractsChange: 0,
+        revenueChange: 0,
+        conversionChange: 0,
+        clientsChange: 0
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-kiwi"></div>
+      </div>
+    );
+  }
+
+  const stats = dashboardData ? [
     {
       name: "Contratos Ativos",
-      value: "12",
-      change: "+2",
+      value: dashboardData.totalContracts.toString(),
+      change: `+${dashboardData.contractsChange}`,
       changeType: "positive" as const,
-      icon: DocumentTextIcon,
+      icon: FileText,
     },
     {
-      name: "Receita do Mês",
-      value: "R$ 15.420",
-      change: "+12%",
+      name: "Receita Total",
+      value: `R$ ${dashboardData.totalRevenue.toLocaleString()}`,
+      change: `+${dashboardData.revenueChange}%`,
       changeType: "positive" as const,
-      icon: CreditCardIcon,
+      icon: DollarSign,
     },
     {
       name: "Taxa de Conversão",
-      value: "68%",
-      change: "+5%",
+      value: `${dashboardData.conversionRate}%`,
+      change: `+${dashboardData.conversionChange}%`,
       changeType: "positive" as const,
-      icon: ChartBarIcon,
+      icon: BarChart3,
     },
     {
       name: "Clientes Ativos",
-      value: "24",
-      change: "+3",
+      value: dashboardData.activeClients.toString(),
+      change: `+${dashboardData.clientsChange}`,
       changeType: "positive" as const,
-      icon: UserGroupIcon,
+      icon: Users,
     },
-  ];
+  ] : [];
 
   return (
     <div className="space-y-6">
@@ -70,7 +134,7 @@ export default function DashboardPage() {
       </motion.div>
 
       {/* Main Content Grid */}
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
         {/* Recent Contracts */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -88,6 +152,15 @@ export default function DashboardPage() {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <QuickActions />
+        </motion.div>
+
+        {/* Recent Activity */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <RecentActivity />
         </motion.div>
       </div>
     </div>

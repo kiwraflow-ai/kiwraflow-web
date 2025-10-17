@@ -3,7 +3,7 @@ import { prisma } from "./db";
 import bcrypt from "bcryptjs";
 
 export const authOptions = {
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET || "kiwraflow-development-secret-key-2024",
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -70,5 +70,5 @@ export const authOptions = {
   pages: {
     signIn: "/login",
   },
-  debug: process.env.NODE_ENV === "development",
+  debug: false,
 };

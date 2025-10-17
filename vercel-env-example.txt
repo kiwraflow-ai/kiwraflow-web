@@ -1,0 +1,17 @@
+# Variáveis de Ambiente para Vercel
+# Adicione estas variáveis no painel do Vercel
+
+# Database (PostgreSQL)
+DATABASE_URL=postgresql://username:password@host:5432/database
+
+# NextAuth
+NEXTAUTH_URL=https://seu-projeto.vercel.app
+NEXTAUTH_SECRET=seu-secret-super-seguro-aqui
+
+# Email (opcional)
+RESEND_API_KEY=re_xxxxxxxxxx
+SENDGRID_API_KEY=SG.xxxxxxxxxx
+
+# Payment (opcional)
+STRIPE_SECRET_KEY=sk_test_xxxxxxxxxx
+STRIPE_PUBLISHABLE_KEY=pk_test_xxxxxxxxxx
